@@ -4,15 +4,7 @@ Desc: This program contains information about flights and lets users book flight
 Name: Addison Wenzel, Zac Chen, Andy Lin, Chris DeMuyt, Evan Michael Harding
 Email: wenzela@purdue.edu, lin1019@purdue.edu, chen2946@purdue.edu, cdemuyt@purdue.edu, hardine@purdue.edu
 */
-
-#include <stdio.h>
-
-void main(){
-        printf("\ntest\n");
-        //test
-        //hello - zac wrote this
-        //hell - andy wrote this
-        
+      
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
