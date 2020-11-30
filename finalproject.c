@@ -138,19 +138,19 @@ int main() {
                             {
                                 printf("\nDetails for return trip");
                                 header();
-                                printf("Hong Kong to Manila     2,000   100         45\n"); break;
+                                printf("Indianapolis To West Lafayette     2,000   100         45\n"); break;
                             }
                             case 2: 
                             {
                                 printf("\nDetails for return trip");
                                 header();
-                                printf("Caticlan to Manila      1,500   75          67\n"); break;
+                                printf("New York To West Lafayette      1,500   75          67\n"); break;
                             }
                             case 3: 
                             {
                                 printf("\nDetails for return trip");
                                 header();
-                                printf("Singapore to Manila     4,000   100         46\n"); break;
+                                printf("Atlanta To West Lafayette     4,000   100         46\n"); break;
                             }
                             default: break;
                         }
@@ -162,17 +162,17 @@ int main() {
                             case 1: 
                             {
                                 header();
-                                printf("\nHong Kong to Manila       2,000   100         45"); break;
+                                printf("\nIndianapolis To West Lafayette       2,000   100         45"); break;
                             }
                             case 2: 
                             {
                                 header();
-                                printf("\nCaticlan to Manila        1,500   75          67"); break;
+                                printf("\nNew York To West Lafayette        1,500   75          67"); break;
                             }
                             case 3: 
                             {
                                 header();
-                                printf("\nSingapore to Manila       4,000   100         46"); break;
+                                printf("\nAtlanta To West Lafayette       4,000   100         46"); break;
                             }
                             default: break;
                         }
