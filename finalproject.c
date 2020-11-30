@@ -202,16 +202,16 @@ int main() {
              break;
         }
         printf("\n");
-    printf("\nSummary: ");
-    for (a=1; a<=x; a++)
-    {
-    printf("\nDetails of Ticket no. [%d]", a);
-    printf("\nFlight no. [%d]\n", book[a].ticket);
+        printf("\nSummary: ");
+        for (a=1; a<=x; a++)
+        {
+        printf("\nDetails of Ticket no. [%d]", a);
+        printf("\nFlight no. [%d]\n", book[a].ticket);
+        }
+        total=book[a].price;
+        printf("\nTotal number of tickets: %d\n", x);
+        printf("\nTotal Price: %0.2f", total);
     }
-    total=book[a].price;
-    printf("\nTotal number of tickets: %d\n", x);
-    printf("\nTotal Price: %0.2f", total);
-}
     else 
     {
     printf("\nInvalid login");
