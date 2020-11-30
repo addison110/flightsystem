@@ -45,7 +45,7 @@ int main() {
     char user[50], pw[50], adminu[50]="jon", adminpw[50]="snow"; //username and password
     int trip; //1. round trip or 2. one way
     int date; //date of trip (aug 10, 11, 12)
-    int date2
+    int date2;
     int a;
     int x; //number of tickets
     int y;
