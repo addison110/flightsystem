@@ -33,9 +33,6 @@ void option3()
     printf("8. West Lafayette To New York           150     75          16\n");
     printf("9. West Lafayette To Atlanta            500     60          35\n");
 }
-int choice()
-{
-}
 struct flight{
     int ticket;
     int price;
@@ -49,7 +46,7 @@ int main() {
     int a;
     int x; //number of tickets
     int y;
-    float total; //total price of ticket
+    float total = 0; //total price of ticket
     char repeat;
     int choice; //if user wants to continue
     int i = 1; //loop variable
