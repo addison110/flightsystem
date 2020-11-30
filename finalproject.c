@@ -45,7 +45,7 @@ int main() {
     char user[50], pw[50], adminu[50]="jon", adminpw[50]="snow"; //username and password
     int trip; //1. round trip or 2. one way
     int date; //date of trip (aug 10, 11, 12)
-    int date2;
+    int date2; //return date
     int a;
     int x; //number of tickets
     int y;
@@ -130,7 +130,7 @@ int main() {
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
-                        if (date2==1)
+                        if (date2==1) //round trip return date: aug 11
                         {
                         switch (book[a].ticket)
                         {
@@ -155,7 +155,7 @@ int main() {
                             default: break;
                         }
                         }
-                        else if (date2==2)
+                        else if (date2==2) //return date round trip: aug 12
                         {
                             switch (book[a].ticket)
                         {
@@ -177,7 +177,7 @@ int main() {
                             default: break;
                         }
                         }
-                        else 
+                        else //invalid round trip return date
                         {
                         printf("\nInvalid"); 
                         return 0;
@@ -208,7 +208,7 @@ int main() {
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else printf("\nInvalid");
+                else printf("\nInvalid"); //invalid round trip date
                 break;
                     break;
                 }
