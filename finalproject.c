@@ -12,7 +12,7 @@ void header()
 {
     printf("\nFlight                Price   Seating Capacity    Available Seats\n");
 }
-void option1()
+void option1() //one way trip aug 10
 {
     printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
     printf("1. West Lafayette To Indianapolis      50      10          6\n");
@@ -41,14 +41,19 @@ struct flight{
     int price;
 };
 int main() {
-    struct flight book[10];
+    struct flight book[10]; //creates flight
     char user[50], pw[50], adminu[50]="jon", adminpw[50]="snow"; //username and password
-    int trip, date, date2, a, x, y;
-    float total;
+    int trip; //1. round trip or 2. one way
+    int date; //date of trip (aug 10, 11, 12)
+    int date2
+    int a;
+    int x; //number of tickets
+    int y;
+    float total; //total price of ticket
     char repeat;
     int choice; //if user wants to continue
     int i = 1; //loop variable
-    while(i == 1){
+    while(i == 1){ //big loop
         //prompts user to enter login info
         printf("\nEnter username: ");
         scanf("%s", &user);
@@ -62,61 +67,65 @@ int main() {
             printf("\n1. One way trip \n2. Roundtrip\n");
             scanf("\n%d", &trip);
             printf("\nDate: ");
-            printf("\n1. August 10, 2021 \n2. August 11, 2021\n3. August 12, 2021(not applicable for round trip)\n");
+            printf("\n1. August 10, 2021 \n2. August 11, 2021\n3. August 12, 2021\n");
             scanf("%d", &date);
-            switch (trip)
+            switch (trip) //round trip or one way trip
             {
-            case 1: 
+            case 1: //one way trip
             {
-                if (date==1)
+                if (date==1) //one way trip date: aug 10
                 {
-                    printf("\nAugust 10, 2017\n");
-                    option1();
+                    printf("\nAugust 10, 2021\n");
+                    option1(); //displays flight info for aug 10
                     printf("\nHow many tickets will you get?:");
                     scanf("%d", &x);
+		    //loops for each ticket
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else if (date==2)
+                else if (date==2) //one way trip date: aug 11
                 {
-                printf("\nAugust 11, 2017\n");
-                option2();
+                printf("\nAugust 11, 2021\n");
+                option2(); //shows flight data
                 printf("\nHow many tickets will you get?:  ");
                 scanf("%d", &x);
+		//loops for each ticket
                 for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else if (date==3)
+                else if (date==3) //one way trip date: aug 12
                 {
-                    printf("\nAugust 12, 2017\n");
-                    option3();
+                    printf("\nAugust 12, 2021\n");
+                    option3(); //prints fight data
                     printf("\nHow many tickets will you get?: ");
                     scanf("%d", &x);
+		    //loops for each ticket
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else printf("\nInvalid");
+                else printf("\nInvalid"); //invalid choice
                 break;
             }
-            case 2:
+            case 2: //round trip
                 {
-                if (date==1)
+                if (date==1) //round trip date: aug 10
                 {
-                    printf("\nAugust 10, 2017\n");
+                    printf("\nAugust 10, 2021\n");
                     option1();
-                    printf("\nChoose date of return: \n1. August 11, 2017\n2. August 12, 2017\n");
+                    printf("\nChoose date of return: \n1. August 11, 2021\n2. August 12, 2021\n");
                     scanf("%d", &date2);
                     printf("\nHow many tickets will you get (excluding the return trip)?: ");
                     scanf("%d", &x);
+		    //loop for amount of tickets
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
@@ -175,9 +184,9 @@ int main() {
                         }
                     }
                 }
-                else if (date==2)
+                else if (date==2) //round trip date: aug 11
                 {
-                printf("\nAugust 11, 2017\n");
+                printf("\nAugust 11, 2021\n");
                 option2();
                 printf("\nHow many tickets will you get?: ");
                 scanf("%d", &x);
@@ -187,9 +196,9 @@ int main() {
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else if (date==3)
+                else if (date==3) //round trip date: aug 12
                 {
-                    printf("\nAugust 12, 2017\n");
+                    printf("\nAugust 12, 2021\n");
                     option3();
                     printf("\nHow many tickets will you get?: ");
                     scanf("%d", &x);
