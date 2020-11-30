@@ -46,6 +46,7 @@ int main() {
     int trip, date, date2, a, x, y;
     float total;
     char repeat;
+    int choice; //if user wants to continue
     int i = 1; //loop variable
     while(i == 1){
         //prompts user to enter login info
@@ -215,10 +216,17 @@ int main() {
             total=book[a].price;
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f", total);
+	    //asking user if they want to keep running the program
+	    printf("\n----------------------------------------------------");
+	    printf("\nWould you like to keep running the program? (1 for yes | 0 for no): ");
+	    scanf("%d", &choice);
+	    if (choice == 0){ //stops the program
+	    	exit(1);
+	    }
         }
         else 
         {
-        printf("\nInvalid login");
+        printf("\nInvalid login, please try again");
         }
     }
     return 0;
