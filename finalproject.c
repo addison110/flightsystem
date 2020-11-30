@@ -42,14 +42,18 @@ struct flight{
 };
 int main() {
     struct flight book[10];
-    char user[50], pw[50], adminu[50]="jon", adminpw[50]="snow";
+    char user[50], pw[50], adminu[50]="jon", adminpw[50]="snow"; //username and password
     int trip, date, date2, a, x, y;
     float total;
     char repeat;
+    int i = 1; //loop variable
+    while(i == 1){
+    //prompts user to enter login info
     printf("\nEnter username: ");
     scanf("%s", &user);
     printf("\nEnter password: ");
     scanf("%s", &pw);
+    //checks if username and password are valid
     if (strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0)
     {
         printf("\nWelcome");
@@ -57,7 +61,7 @@ int main() {
         printf("\n1. One way trip \n2. Roundtrip\n");
         scanf("\n%d", &trip);
         printf("\nDate: ");
-        printf("\n1. August 10, 2017 \n2. August 11, 2017\n3. August 12, 2017(not applicable for round trip)\n");
+        printf("\n1. August 10, 2021 \n2. August 11, 2021\n3. August 12, 2021(not applicable for round trip)\n");
         scanf("%d", &date);
         switch (trip)
         {
