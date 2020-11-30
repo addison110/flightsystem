@@ -14,24 +14,24 @@ void header()
 }
 void option1()
 {
-    printf("\nFlight                Price   Seating Capacity    Available Seats\n");
-    printf("1. Manila To Hong Kong      1,500   100         16\n");
-    printf("2. Manila To Caticlan       1,000   75          0\n");
-    printf("3. Manila To Singapore      3,000   100         24\n");
+    printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
+    printf("1. West Lafayette To Indianapolis      50      10          6\n");
+    printf("2. West Lafayette To New York          200     75          0\n");
+    printf("3. West Lafayette To Atlanta           300     100         24\n");
 }
 void option2()
 {
-    printf("\nFlight                Price   Seating Capacity    Available Seats\n");
-    printf("4. Manila To Hong Kong      1,700   100         18\n");
-    printf("5. Manila To Caticlan       2,000   75          24\n");
-    printf("6. Manila To Singapore      4,000   100         65\n");
+    printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
+    printf("4. West Lafayette To Indianapolis      60       10          8\n");
+    printf("5. West Lafayette To New York          200      15          14\n");
+    printf("6. West Lafayette To Atlanta           400      30          15\n");
 }
 void option3()
 {
-    printf("\nFlight                Price   Seating Capacity    Available Seats\n");
-    printf("7. Manila To Hong Kong      2,000   100         46\n");
-    printf("8. Manila To Caticlan       1,500   75          16\n");
-    printf("9. Manila To Singapore      4,000   100         85\n");
+    printf("\nFlight                              Price   Seating Capacity    Available Seats\n");
+    printf("7. West Lafayette To Indianapolis       70      10          7\n");
+    printf("8. West Lafayette To New York           150     75          16\n");
+    printf("9. West Lafayette To Atlanta            500     60          35\n");
 }
 int choice()
 {
@@ -218,4 +218,4 @@ int main() {
     }   
     return 0;
 }
-}
+
