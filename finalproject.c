@@ -19,14 +19,14 @@ void option1() //one way trip aug 10
     printf("2. West Lafayette To New York          200     75          0\n");
     printf("3. West Lafayette To Atlanta           300     100         24\n");
 }
-void option2()
+void option2() //one way trip aug 11
 {
     printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
     printf("4. West Lafayette To Indianapolis      60       10          8\n");
     printf("5. West Lafayette To New York          200      15          14\n");
     printf("6. West Lafayette To Atlanta           400      30          15\n");
 }
-void option3()
+void option3() //one way trip aug 12
 {
     printf("\nFlight                              Price   Seating Capacity    Available Seats\n");
     printf("7. West Lafayette To Indianapolis       70      10          7\n");
