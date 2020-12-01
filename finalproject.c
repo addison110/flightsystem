@@ -8,6 +8,8 @@ Email: wenzela@purdue.edu, lin1019@purdue.edu, chen2946@purdue.edu, cdemuyt@purd
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
+
 void header()
 {
     printf("\nFlight                Price   Seating Capacity    Available Seats\n");
@@ -49,6 +51,31 @@ int main() {
     float total = 0; //total price of ticket
     char repeat;
     int choice; //if user wants to continue
+	
+	//TIME USAGE
+	
+	time_t current_time;
+    char* c_time_string;
+
+    /* Obtain current time. */
+    current_time = time(NULL);
+
+    if (current_time == ((time_t)-1))
+    {
+        (void) fprintf(stderr, "Failure to obtain the current time.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    /* Convert to local time format. */
+    c_time_string = ctime(&current_time);
+
+    if (c_time_string == NULL)
+    {
+        (void) fprintf(stderr, "Failure to convert the current time.\n");
+        exit(EXIT_FAILURE);
+    }
+	
+	
     int i = 1; //loop variable
     while(i == 1){ //big loop
         //prompts user to enter login info
@@ -222,6 +249,7 @@ int main() {
             total=book[a].price;
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f", total);
+	    printf("\nCurrent time for ticket verification is %s", c_time_string);
 	    //asking user if they want to keep running the program
 	    printf("\n----------------------------------------------------");
 	    printf("\nWould you like to keep running the program? (1 for yes | 0 for no): ");
