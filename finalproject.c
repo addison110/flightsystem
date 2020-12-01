@@ -1,3 +1,4 @@
+
 /*
 Title: Flight Management system (How long until you see my comment? -Evan)
 Desc: This program contains information about flights and lets users book flights
@@ -5,6 +6,7 @@ Name: Addison Wenzel, Zac Chen, Andy Lin, Chris DeMuyt, Evan Michael Harding
 Email: wenzela@purdue.edu, lin1019@purdue.edu, chen2946@purdue.edu, cdemuyt@purdue.edu, hardine@purdue.edu
 */
 
+#define _GNU_SOURCE /* for tm_gmtoff and tm_zone */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -75,6 +77,11 @@ int main() {
         exit(EXIT_FAILURE);
     }
 	
+ time_t t = times(NULL);
+  struct tm lt = {0};
+
+  localtime_r(&t, &lt);
+
 	
     int i = 1; //loop variable
     while(i == 1){ //big loop
@@ -249,7 +256,12 @@ int main() {
             total=book[a].price;
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f", total);
+		
+		
 	    printf("\nCurrent time for ticket verification is %s", c_time_string);
+		 printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
+  printf("The time zone is '%s'.\n", lt.tm_zone);
+		
 	    //asking user if they want to keep running the program
 	    printf("\n----------------------------------------------------");
 	    printf("\nWould you like to keep running the program? (1 for yes | 0 for no): ");
@@ -265,4 +277,3 @@ int main() {
     }
     return 0;
 }
-
