@@ -53,29 +53,21 @@ int main() {
     float total = 0; //total price of ticket
     char repeat;
     int choice; //if user wants to continue
+    
+    char buffer[150];
+    time_t curtime;
+    struct tm *loctime;
+    
+    curtime = time(NULL);
+    loctime = localtime(&curtime);
+    
+    fputs (asctime (loctime),stdout);
+   
+    
+    
+    
 	
-	//TIME USAGE
-	
-	time_t current_time;
-    char* c_time_string;
 
-    /* Obtain current time. */
-    current_time = time(NULL);
-
-    if (current_time == ((time_t)-1))
-    {
-        (void) fprintf(stderr, "Failure to obtain the current time.\n");
-        exit(EXIT_FAILURE);
-    }
-
-    /* Convert to local time format. */
-    c_time_string = ctime(&current_time);
-
-    if (c_time_string == NULL)
-    {
-        (void) fprintf(stderr, "Failure to convert the current time.\n");
-        exit(EXIT_FAILURE);
-    }
 	
  time_t t = times(NULL);
   struct tm lt = {0};
@@ -255,10 +247,13 @@ int main() {
             }
             total=book[a].price;
             printf("\nTotal number of tickets: %d\n", x);
-            printf("\nTotal Price: %0.2f", total);
+            printf("\nTotal Price: %0.2f \n", total);
 		
-		
-	    printf("\nCurrent time for ticket verification is %s", c_time_string);
+		strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
+  fputs (buffer, stdout);
+  strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
+  fputs (buffer, stdout);
+	   
 		 printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
   printf("The time zone is '%s'.\n", lt.tm_zone);
 		
