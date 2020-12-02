@@ -54,22 +54,17 @@ int main() {
     char repeat;
     int choice; //If user wants to continue
     
-    //API
+    //API for the time
     char buffer[150];
     time_t curtime;
     struct tm *loctime;
-    
     curtime = time(NULL);
     loctime = localtime(&curtime);
-    
     fputs (asctime (loctime),stdout);
-   
- time_t t = times(NULL);
-  struct tm lt = {0};
+    time_t t = times(NULL);
+    struct tm lt = {0};
+    localtime_r(&t, &lt);
 
-  localtime_r(&t, &lt);
-
-	
     int i = 1; //Loop variable
     while(i == 1){ //Big loop
         //Prompts user to enter login info
@@ -266,13 +261,12 @@ int main() {
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f \n", total);
 		
-		strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
-  fputs (buffer, stdout);
-  strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
-  fputs (buffer, stdout);
-	   
-		 printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
-     printf("The time zone is '%s'.\n", lt.tm_zone);
+	    strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
+            fputs (buffer, stdout);
+            strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
+            fputs (buffer, stdout);
+	    printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
+            printf("The time zone is '%s'.\n", lt.tm_zone);
 		
 	    //Asking user if they want to keep running the program
 	    printf("\n----------------------------------------------------");
