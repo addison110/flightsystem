@@ -43,7 +43,7 @@ struct flight{
 };
 int main() {
     struct flight book[10]; //creates flight
-    char user[50], pw[50], adminu[50]="jon", adminpw[50]="snow"; //username and password
+    char user[50], pw[50], adminu[50]="John", adminpw[50]="Doe"; //username and password
     int trip; //1. round trip or 2. one way
     int date; //date of trip (aug 10, 11, 12)
     int date2; //return date
@@ -78,17 +78,21 @@ int main() {
     int i = 1; //loop variable
     while(i == 1){ //big loop
         //prompts user to enter login info
-        printf("\nEnter username: ");
+        printf("---------- Flight Management System ----------\n");
+        printf("                User Login\n");
+        printf("\nEnter Username: ");
         scanf("%s", &user);
-        printf("\nEnter password: ");
+        printf("\nEnter Password: ");
         scanf("%s", &pw);
+        printf("\n----------                          ----------\n");
         //checks if username and password are valid
         if (strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0)
         {
-            printf("\nWelcome");
-            printf("\nChoose if one way trip or roundtrip: ");
-            printf("\n1. One way trip \n2. Roundtrip\n");
+            printf("          Welcome, %s", &user);
+            printf("\nPlease select one of the follow choices: ");
+            printf("\n1. One way trip \n\n2. Roundtrip\n\n");
             scanf("\n%d", &trip);
+            printf("----------                          ----------");
             printf("\nDate: ");
             printf("\n1. August 10, 2021 \n2. August 11, 2021\n3. August 12, 2021\n");
             scanf("%d", &date);
@@ -255,7 +259,7 @@ int main() {
   fputs (buffer, stdout);
 	   
 		 printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
-  printf("The time zone is '%s'.\n", lt.tm_zone);
+     printf("The time zone is '%s'.\n", lt.tm_zone);
 		
 	    //asking user if they want to keep running the program
 	    printf("\n----------------------------------------------------");
@@ -267,7 +271,7 @@ int main() {
         }
         else 
         {
-        printf("\nInvalid login, please try again");
+        printf("\nInvalid login, please try again\n\n");
         }
     }
     return 0;
