@@ -14,28 +14,28 @@ Email: wenzela@purdue.edu, lin1019@purdue.edu, chen2946@purdue.edu, cdemuyt@purd
 
 void header()
 {
-    printf("\nFlight                Price   Seating Capacity    Available Seats\n");
+    printf("\nFlight               [Price]   [Seating Capacity]    [Available Seats]\n");
 }
 void option1() //One way trip aug 10
 {
-    printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
-    printf("1. West Lafayette To Indianapolis      50      10                  6\n");
-    printf("2. West Lafayette To New York          200     75                  0\n");
-    printf("3. West Lafayette To Atlanta           300     100                 24\n");
+    printf("\nFlight                              [Price]   [Seating Capacity]    [Available Seats]\n");
+    printf("1. West Lafayette To Indianapolis      50      10          6\n");
+    printf("2. West Lafayette To New York          200     75          0\n");
+    printf("3. West Lafayette To Atlanta           300     100         24\n");
 }
 void option2() //One way trip aug 11
 {
-    printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
-    printf("4. West Lafayette To Indianapolis      60       10                 8\n");
-    printf("5. West Lafayette To New York          200      15                 14\n");
-    printf("6. West Lafayette To Atlanta           400      30                 15\n");
+    printf("\nFlight                              [Price]   [Seating Capacity]    [Available Seats]\n");
+    printf("4. West Lafayette To Indianapolis      60       10          8\n");
+    printf("5. West Lafayette To New York          200      15          14\n");
+    printf("6. West Lafayette To Atlanta           400      30          15\n");
 }
 void option3() //One way trip aug 12
 {
-    printf("\nFlight                              Price   Seating Capacity    Available Seats\n");
-    printf("7. West Lafayette To Indianapolis       70      10                7\n");
-    printf("8. West Lafayette To New York           150     75                16\n");
-    printf("9. West Lafayette To Atlanta            500     60                35\n");
+    printf("\nFlight                              [Price]   [Seating Capacity]    [Available Seats]\n");
+    printf("7. West Lafayette To Indianapolis       70      10          7\n");
+    printf("8. West Lafayette To New York           150     75          16\n");
+    printf("9. West Lafayette To Atlanta            500     60          35\n");
 }
 struct flight{
     int ticket;
@@ -54,30 +54,36 @@ int main() {
     char repeat;
     int choice; //If user wants to continue
     
-    //API for the time
+    //API
     char buffer[150];
     time_t curtime;
     struct tm *loctime;
+    
     curtime = time(NULL);
     loctime = localtime(&curtime);
+    
     fputs (asctime (loctime),stdout);
-    time_t t = times(NULL);
-    struct tm lt = {0};
-    localtime_r(&t, &lt);
+   
+ time_t t = times(NULL);
+  struct tm lt = {0};
+
+  localtime_r(&t, &lt);
+
+	
     int i = 1; //Loop variable
     while(i == 1){ //Big loop
         //Prompts user to enter login info
-        printf("---------- Flight Management System ----------\n");
-        printf("                User Login\n");
+        printf("---------- [Flight Management System] ----------\n");
+        printf("                  User Login\n");
         printf("\nEnter Username: ");
         scanf("%s", &user);
         printf("\nEnter Password: ");
         scanf("%s", &pw);
-        printf("\n----------                          ----------\n");
+        printf("\n----------                            ----------\n");
         //Checks if username and password are valid
         if (strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0)
         {
-           printf("          Welcome, %s", &user);
+           printf("            Welcome, %s", &user);
            //Validating that user input is valid between numbers 1-2
             do {
             printf("\nPlease select one of the follow choices: ");
@@ -93,7 +99,7 @@ int main() {
             //Validating that user input is valid between numbers 1-3
             do {
             printf("----------                          ----------");
-            printf("\nDate: ");
+            printf("\nSelect one of the corresponding date listed below:\n ");
             printf("\n1. August 10, 2021 \n2. August 11, 2021\n3. August 12, 2021\n");
             scanf("%d", &date);
             if (date < 1 || date > 3)
@@ -133,10 +139,10 @@ int main() {
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else if (date==3) //one way trip date: aug 12
+                else if (date==3) //One way trip date: aug 12
                 {
                     printf("\nAugust 12, 2021\n");
-                    option3(); //prints fight data
+                    option3(); //Prints fight data
                     printf("\nHow many tickets will you get?: ");
                     scanf("%d", &x);
 		    //Loops for each ticket
@@ -249,7 +255,6 @@ int main() {
                 default:
                  break;
             }
-	    //summary of the tickets selected
             printf("\n");
             printf("\nSummary: ");
             for (a=1; a<=x; a++)
@@ -261,13 +266,13 @@ int main() {
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f \n", total);
 		
-	    strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
-            fputs (buffer, stdout);
-            strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
-            fputs (buffer, stdout);
+		strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
+  fputs (buffer, stdout);
+  strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
+  fputs (buffer, stdout);
 	   
-	    printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
-            printf("The time zone is '%s'.\n", lt.tm_zone);
+		 printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
+     printf("The time zone is '%s'.\n", lt.tm_zone);
 		
 	    //Asking user if they want to keep running the program
 	    printf("\n----------------------------------------------------");
