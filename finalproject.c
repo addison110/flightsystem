@@ -19,23 +19,23 @@ void header()
 void option1() //One way trip aug 10
 {
     printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
-    printf("1. West Lafayette To Indianapolis      50      10          6\n");
-    printf("2. West Lafayette To New York          200     75          0\n");
-    printf("3. West Lafayette To Atlanta           300     100         24\n");
+    printf("1. West Lafayette To Indianapolis      50      10                  6\n");
+    printf("2. West Lafayette To New York          200     75                  0\n");
+    printf("3. West Lafayette To Atlanta           300     100                 24\n");
 }
 void option2() //One way trip aug 11
 {
     printf("\nFlight                               Price   Seating Capacity    Available Seats\n");
-    printf("4. West Lafayette To Indianapolis      60       10          8\n");
-    printf("5. West Lafayette To New York          200      15          14\n");
-    printf("6. West Lafayette To Atlanta           400      30          15\n");
+    printf("4. West Lafayette To Indianapolis      60       10                 8\n");
+    printf("5. West Lafayette To New York          200      15                 14\n");
+    printf("6. West Lafayette To Atlanta           400      30                 15\n");
 }
 void option3() //One way trip aug 12
 {
     printf("\nFlight                              Price   Seating Capacity    Available Seats\n");
-    printf("7. West Lafayette To Indianapolis       70      10          7\n");
-    printf("8. West Lafayette To New York           150     75          16\n");
-    printf("9. West Lafayette To Atlanta            500     60          35\n");
+    printf("7. West Lafayette To Indianapolis       70      10                7\n");
+    printf("8. West Lafayette To New York           150     75                16\n");
+    printf("9. West Lafayette To Atlanta            500     60                35\n");
 }
 struct flight{
     int ticket;
@@ -54,26 +54,16 @@ int main() {
     char repeat;
     int choice; //If user wants to continue
     
-    //API
+    //API for the time
     char buffer[150];
     time_t curtime;
     struct tm *loctime;
-    
     curtime = time(NULL);
     loctime = localtime(&curtime);
-    
     fputs (asctime (loctime),stdout);
-   
-    
-    
-    
-
- time_t t = times(NULL);
-  struct tm lt = {0};
-
-  localtime_r(&t, &lt);
-
-	
+    time_t t = times(NULL);
+    struct tm lt = {0};
+    localtime_r(&t, &lt);
     int i = 1; //Loop variable
     while(i == 1){ //Big loop
         //Prompts user to enter login info
@@ -259,6 +249,7 @@ int main() {
                 default:
                  break;
             }
+	    //summary of the tickets selected
             printf("\n");
             printf("\nSummary: ");
             for (a=1; a<=x; a++)
@@ -270,13 +261,13 @@ int main() {
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f \n", total);
 		
-		strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
-  fputs (buffer, stdout);
-  strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
-  fputs (buffer, stdout);
+	    strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
+            fputs (buffer, stdout);
+            strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
+            fputs (buffer, stdout);
 	   
-		 printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
-     printf("The time zone is '%s'.\n", lt.tm_zone);
+	    printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
+            printf("The time zone is '%s'.\n", lt.tm_zone);
 		
 	    //Asking user if they want to keep running the program
 	    printf("\n----------------------------------------------------");
