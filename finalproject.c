@@ -47,13 +47,14 @@ int main() {
     int trip; //Option 1 for  round trip option 2 for one way
     int date; //Date of trip (aug 10, 11, 12)
     int date2; //Return date
-    int a;
+    int a; //Loop variable
     int x; //Number of tickets
     int y;
-    float total = 0; //Total price of ticket
+    float total = 0.0; //Total price of ticket
     char repeat;
     int choice; //If user wants to continue
-    
+    int loggedin = 0; //Changes if the user has already logged in
+
     //API for the time
     char buffer[150];
     time_t curtime;
@@ -67,18 +68,22 @@ int main() {
 
     int i = 1; //Loop variable
     while(i == 1){ //Big loop
-        //Prompts user to enter login info
-        printf("---------- [Flight Management System] ----------\n");
-        printf("                  User Login\n");
-        printf("\nEnter Username: ");
-        scanf("%s", &user);
-        printf("\nEnter Password: ");
-        scanf("%s", &pw);
-        printf("\n----------                            ----------\n");
-        //Checks if username and password are valid
-        if (strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0)
+	if (loggedin == 0)
+	{
+		//Prompts user to enter login info
+	        printf("---------- [Flight Management System] ----------\n");
+        	printf("                  User Login\n");
+	        printf("\nEnter Username: ");
+        	scanf("%s", &user);
+	        printf("\nEnter Password: ");
+       		scanf("%s", &pw);
+        	printf("\n----------                            ----------\n");
+	}
+	//checks if user entered correct login or has previously logged in
+        if (strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0 || loggedin == 1)
         {
            printf("            Welcome, %s", &user);
+	   loggedin = 1; //records that the user has previously logged in
            //Validating that user input is valid between numbers 1-2
             do {
             printf("\nPlease select one of the follow choices: ");
@@ -88,7 +93,7 @@ int main() {
               {
                 printf("\n1. One way trip \n\n2. Roundtrip\n\n");
                 printf("Invalid Entry- Please Enter 1 Or 2");
-              } 
+              }
             }while (trip < 1 || trip > 2);
 
             //Validating that user input is valid between numbers 1-3
@@ -103,7 +108,7 @@ int main() {
                   scanf("%d", &date);
               }
             } while (date < 1 || date > 3);
-            
+
             switch (trip) //Round trip or one way trip
             {
             case 1: //One way trip
@@ -119,6 +124,9 @@ int main() {
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
+
+			//debug
+			//printf("\n--debug-- book[a].ticket: %d\n", book[a].ticket);
                     }
                 }
                 else if (date==2) //one way trip date: aug 11
@@ -169,19 +177,19 @@ int main() {
                         {
                         switch (book[a].ticket)
                         {
-                            case 1: 
+                            case 1:
                             {
                                 printf("\nDetails for return trip");
                                 header();
                                 printf("Indianapolis To West Lafayette     2,000   100         45\n"); break;
                             }
-                            case 2: 
+                            case 2:
                             {
                                 printf("\nDetails for return trip");
                                 header();
                                 printf("New York To West Lafayette      1,500   75          67\n"); break;
                             }
-                            case 3: 
+                            case 3:
                             {
                                 printf("\nDetails for return trip");
                                 header();
@@ -194,17 +202,17 @@ int main() {
                         {
                             switch (book[a].ticket)
                         {
-                            case 1: 
+                            case 1:
                             {
                                 header();
                                 printf("\nIndianapolis To West Lafayette       2,000   100         45"); break;
                             }
-                            case 2: 
+                            case 2:
                             {
                                 header();
                                 printf("\nNew York To West Lafayette        1,500   75          67"); break;
                             }
-                            case 3: 
+                            case 3:
                             {
                                 header();
                                 printf("\nAtlanta To West Lafayette       4,000   100         46"); break;
@@ -214,7 +222,7 @@ int main() {
                         }
                         else //Invalid round trip return date
                         {
-                        printf("\nInvalid"); 
+                        printf("\nInvalid");
                         return 0;
                         }
                     }
@@ -250,33 +258,63 @@ int main() {
                 default:
                  break;
             }
+	    //summary output
             printf("\n");
             printf("\nSummary: ");
             for (a=1; a<=x; a++)
             {
             printf("\nDetails of Ticket no. [%d]", a);
             printf("\nFlight no. [%d]\n", book[a].ticket);
-            }
-            total=book[a].price;
+
+	    //adding up the price based on the flight number
+	    if (book[a].ticket == 1)
+	    	total = total + 50;
+	    else if (book[a].ticket == 2)
+		total = total + 200;
+	    else if (book[a].ticket == 3)
+		total = total + 300;
+	    else if (book[a].ticket == 4)
+		total = total + 60;
+            else if (book[a].ticket == 5)
+                total = total + 200;
+            else if (book[a].ticket == 6)
+                total = total + 400;
+            else if (book[a].ticket == 7)
+                total = total + 70;
+            else if (book[a].ticket == 8)
+                total = total + 150;
+            else if (book[a].ticket == 9)
+                total = total + 500;
+
+	    //debug
+	    //printf("\n--debug-- total: %f\n", total);
+	    //printf("\n--debug-- book[a].ticket: %d\n", book[a].ticket);
+	    //printf("\n--debug-- book[a].price: %d\n", book[a].price);
+	    //}
+	    //getting the price from the struc
+            //total=total + book[a].price;
+	    }
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f \n", total);
-		
+	    //outputtubg time from api
 	    strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
             fputs (buffer, stdout);
             strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
             fputs (buffer, stdout);
 	    printf("Offset to GMT is %lds.\n", lt.tm_gmtoff);
             printf("The time zone is '%s'.\n", lt.tm_zone);
-		
+
 	    //Asking user if they want to keep running the program
-	    printf("\n----------------------------------------------------");
+	    printf("\n--------------------------------------------------------------------");
 	    printf("\nWould you like to keep running the program? (1 for yes | 0 for no): ");
 	    scanf("%d", &choice);
-	    if (choice == 0){ //Exits the program 
+	    if (choice == 0){ //Exits the program
 	    	exit(1);
 	    }
+	    total = 0;
+	    //printf("\n--debug-- total: %f\n", total);
         }
-        else 
+        else
         {
         printf("\nInvalid login, please try again\n\n");
         }
