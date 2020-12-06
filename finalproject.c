@@ -82,9 +82,9 @@ int main() {
 	//checks if user entered correct login or has previously logged in
         if ((strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0 )|| loggedin == 1)
         {
-           printf("            Welcome, %s", &user);
-	          loggedin = 1; //records that the user has previously logged in
-           //Validating that user input is valid between numbers 1-2
+            printf("            Welcome, %s", &user);
+	    loggedin = 1; //records that the user has previously logged in
+            //Validating that user input is valid between numbers 1-2
             do {
             printf("\nPlease select one of the follow choices: ");
             printf("\n1. One way trip \n\n2. Roundtrip\n\n");
@@ -125,16 +125,11 @@ int main() {
                       scanf("%d", &x);
                      }
                     } while (x > 10);
-
-                    
 		    //Loops for each ticket
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
-
-			//debug
-			//printf("\n--debug-- book[a].ticket: %d\n", book[a].ticket);
                     }
                 }
                 else if (date==2) //one way trip date: Aug 11
@@ -340,14 +335,6 @@ int main() {
                 total = total + 150;
             else if (book[a].ticket == 9)
                 total = total + 500;
-
-	    //debug
-	    //printf("\n--debug-- total: %f\n", total);
-	    //printf("\n--debug-- book[a].ticket: %d\n", book[a].ticket);
-	    //printf("\n--debug-- book[a].price: %d\n", book[a].price);
-	    //}
-	    //getting the price from the struc
-            //total=total + book[a].price;
 	    }
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: %0.2f \n", total);
@@ -367,7 +354,6 @@ int main() {
 	    	exit(1);
 	    }
 	    total = 0;
-	    //printf("\n--debug-- total: %f\n", total);
         }
         else
         {
