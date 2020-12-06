@@ -83,7 +83,7 @@ int main() {
         if ((strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0 )|| loggedin == 1)
         {
            printf("            Welcome, %s", &user);
-	   loggedin = 1; //records that the user has previously logged in
+	          loggedin = 1; //records that the user has previously logged in
            //Validating that user input is valid between numbers 1-2
             do {
             printf("\nPlease select one of the follow choices: ");
@@ -118,8 +118,6 @@ int main() {
                     printf("\nAugust 10, 2021\n");
                     option1(); //Displays flight info for Aug 10
                     printf("\nHow many tickets will you get?:");
-                    scanf("%d", &x);
-
                     do {//Making sure an individual does place more than 10 tickets at once 
                      {
                       printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
@@ -194,8 +192,22 @@ int main() {
                     option1();
                     printf("\nChoose date of return: \n1. August 11, 2021\n2. August 12, 2021\n");
                     scanf("%d", &date2);
+                    do// Validating that the user can only select the corresponding options of 1 or 2
+                    {
+                      printf("\nInvalid Entry- Please select date 1 or 2\n");
+                      printf("\nChoose date of return: \n1. August 11, 2021\n2. August 12, 2021\n");
+                      scanf("%d", &date2);
+                    } while (date2 < 1 || date2 > 2);
+
                     printf("\nHow many tickets will you get (excluding the return trip)?: ");
                     scanf("%d", &x);
+                    do // Making sure an individual can only place 20 tickets
+                  {
+                    printf("\nRestriction: Max of 20 Tickets may be placed\n");
+                    printf("\nHow many tickets will you get? (0-20): ");
+                    scanf("%d", &x); 
+                  } while (x > 30);
+
 		    //Loop for amount of tickets
                     for (a=1; a<=x; a++)
                     {
@@ -260,7 +272,14 @@ int main() {
                 printf("\nAugust 11, 2021\n");
                 option2();
                 printf("\nHow many tickets will you get?: ");
-                scanf("%d", &x);
+                scanf("%d", &x); 
+                do // Making sure an individual can only place 20 tickets
+                  {
+                    printf("\nRestriction: Max of 20 Tickets may be placed\n");
+                    printf("\nHow many tickets will you get? (0-20): ");
+                    scanf("%d", &x); 
+                  } while (x > 30);
+
                 for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
@@ -273,6 +292,13 @@ int main() {
                     option3();
                     printf("\nHow many tickets will you get?: ");
                     scanf("%d", &x);
+                    do // Making sure an individual can only place 20 tickets
+                  {
+                    printf("\nRestriction: Max of 20 Tickets may be placed\n");
+                    printf("\nHow many tickets will you get? (0-20): ");
+                    scanf("%d", &x); 
+                  } while (x > 30);
+
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
@@ -286,15 +312,16 @@ int main() {
                 default:
                  break;
             }
-	    //summary output
-            printf("\n");
+	    //Summary output
+            printf("\n****************************************************");
             printf("\nSummary: ");
             for (a=1; a<=x; a++)
             {
             printf("\nDetails of Ticket no. [%d]", a);
             printf("\nFlight no. [%d]\n", book[a].ticket);
+            printf("\n****************************************************");
 
-	    //adding up the price based on the flight number
+	    //Adding up the price based on the flight number
 	    if (book[a].ticket == 1)
 	    	total = total + 50;
 	    else if (book[a].ticket == 2)
