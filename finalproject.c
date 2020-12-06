@@ -16,21 +16,21 @@ void header()
 {
     printf("\nFlight               [Price]   [Seating Capacity]    [Available Seats]\n");
 }
-void option1() //One way trip aug 10
+void option1() //One way trip Aug 10
 {
     printf("\nFlight                              [Price]   [Seating Capacity]    [Available Seats]\n");
     printf("1. West Lafayette To Indianapolis      50        10                     6\n");
     printf("2. West Lafayette To New York          200       75                     0\n");
     printf("3. West Lafayette To Atlanta           300       100                    24\n");
 }
-void option2() //One way trip aug 11
+void option2() //One way trip Aug 11
 {
     printf("\nFlight                              [Price]   [Seating Capacity]    [Available Seats]\n");
     printf("4. West Lafayette To Indianapolis      60        10                    8\n");
     printf("5. West Lafayette To New York          200       15                    14\n");
     printf("6. West Lafayette To Atlanta           400       30                    15\n");
 }
-void option3() //One way trip aug 12
+void option3() //One way trip Aug 12
 {
     printf("\nFlight                              [Price]   [Seating Capacity]    [Available Seats]\n");
     printf("7. West Lafayette To Indianapolis       70       10                    7\n");
@@ -45,7 +45,7 @@ int main() {
     struct flight book[10]; //Creates Flight Structure
     char user[50], pw[50], adminu[50]="John", adminpw[50]="Doe"; //Username and password
     int trip; //Option 1 for  round trip option 2 for one way
-    int date; //Date of trip (aug 10, 11, 12)
+    int date; //Date of trip (Aug 10, 11, 12)
     int date2; //Return date
     int a; //Loop variable
     int x; //Number of tickets
@@ -80,7 +80,7 @@ int main() {
         	printf("\n----------                            ----------\n");
 	}
 	//checks if user entered correct login or has previously logged in
-        if (strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0 || loggedin == 1)
+        if ((strcmp(user, adminu)==0 && strcmp(pw, adminpw)==0 )|| loggedin == 1)
         {
            printf("            Welcome, %s", &user);
 	   loggedin = 1; //records that the user has previously logged in
@@ -113,12 +113,22 @@ int main() {
             {
             case 1: //One way trip
             {
-                if (date==1) //One way trip date: aug 10
+                if (date==1) //One way trip date: Aug 10
                 {
                     printf("\nAugust 10, 2021\n");
-                    option1(); //Displays flight info for aug 10
+                    option1(); //Displays flight info for Aug 10
                     printf("\nHow many tickets will you get?:");
                     scanf("%d", &x);
+
+                    do {//Making sure an individual does place more than 10 tickets at once 
+                     {
+                      printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
+                      printf("\nHow many tickets will you get? (0-10): ");
+                      scanf("%d", &x);
+                     }
+                    } while (x > 10);
+
+                    
 		    //Loops for each ticket
                     for (a=1; a<=x; a++)
                     {
@@ -129,12 +139,21 @@ int main() {
 			//printf("\n--debug-- book[a].ticket: %d\n", book[a].ticket);
                     }
                 }
-                else if (date==2) //one way trip date: aug 11
+                else if (date==2) //one way trip date: Aug 11
                 {
                 printf("\nAugust 11, 2021\n");
                 option2(); //shows flight data
                 printf("\nHow many tickets will you get?:  ");
                 scanf("%d", &x);
+
+                 do {//Making sure an individual does place more than 10 tickets at once 
+                     {
+                      printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
+                      printf("\nHow many tickets will you get? (0-10): ");
+                      scanf("%d", &x);
+                     }
+                    } while (x > 10);
+
 		    //Loops for each ticket
                 for (a=1; a<=x; a++)
                     {
@@ -142,12 +161,21 @@ int main() {
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else if (date==3) //One way trip date: aug 12
+                else if (date==3) //One way trip date: Aug 12
                 {
                     printf("\nAugust 12, 2021\n");
                     option3(); //Prints fight data
                     printf("\nHow many tickets will you get?: ");
                     scanf("%d", &x);
+
+                     do {//Making sure an individual does place more than 10 tickets at once 
+                     {
+                      printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
+                      printf("\nHow many tickets will you get? (0-10): ");
+                      scanf("%d", &x);
+                     }
+                    } while (x > 10);
+
 		    //Loops for each ticket
                     for (a=1; a<=x; a++)
                     {
@@ -160,7 +188,7 @@ int main() {
             }
             case 2: //Round trip
                 {
-                if (date==1) //Round trip date: aug 10
+                if (date==1) //Round trip date: Aug 10
                 {
                     printf("\nAugust 10, 2021\n");
                     option1();
@@ -173,7 +201,7 @@ int main() {
                     {
                         printf("\nPlease select which flight you will book: ");
                         scanf("%d", &book[a].ticket);
-                        if (date2==1) //Round trip return date: aug 11
+                        if (date2==1) //Round trip return date: Aug 11
                         {
                         switch (book[a].ticket)
                         {
@@ -198,7 +226,7 @@ int main() {
                             default: break;
                         }
                         }
-                        else if (date2==2) //Return date round trip: aug 12
+                        else if (date2==2) //Return date round trip: Aug 12
                         {
                             switch (book[a].ticket)
                         {
@@ -227,7 +255,7 @@ int main() {
                         }
                     }
                 }
-                else if (date==2) //Round trip date: aug 11
+                else if (date==2) //Round trip date: Aug 11
                 {
                 printf("\nAugust 11, 2021\n");
                 option2();
@@ -239,7 +267,7 @@ int main() {
                         scanf("%d", &book[a].ticket);
                     }
                 }
-                else if (date==3) //Round trip date: aug 12
+                else if (date==3) //Round trip date: Aug 12
                 {
                     printf("\nAugust 12, 2021\n");
                     option3();
@@ -306,7 +334,7 @@ int main() {
 
 	    //Asking user if they want to keep running the program
 	    printf("\n--------------------------------------------------------------------");
-	    printf("\nWould you like to keep running the program? (1 for yes | 0 for no): ");
+	    printf("\nWould you like to keep running the program? (1 for Yes | 0 for No): ");
 	    scanf("%d", &choice);
 	    if (choice == 0){ //Exits the program
 	    	exit(1);
