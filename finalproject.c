@@ -178,8 +178,6 @@ int main() {
                 {
                     printf("\nAugust 10, 2021\n");
                     option1();
-                    printf("\nChoose date of return: \n1. August 11, 2021\n2. August 12, 2021\n");
-                    scanf("%d", &date2);
                     do// Validating that the user can only select the corresponding options of 1 or 2
                     {
                       printf("\nInvalid Entry- Please select date 1 or 2\n");
