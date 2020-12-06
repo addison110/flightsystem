@@ -323,7 +323,7 @@ int main() {
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: $%0.2f \n", total);
 	    //outputtubg time from api
-	    strftime (buffer, 150, "Today is %A, %B %d.\n", loctime);
+	    strftime (buffer, 150, "\nToday is %A, %B %d.\n", loctime);
             fputs (buffer, stdout);
             strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
             fputs (buffer, stdout);
