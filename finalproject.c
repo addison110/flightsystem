@@ -117,7 +117,6 @@ int main() {
                 {
                     printf("\nAugust 10, 2021\n");
                     option1(); //Displays flight info for Aug 10
-                    printf("\nHow many tickets will you get?:");
                     do {//Making sure an individual does place more than 10 tickets at once 
                      {
                       printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
@@ -136,9 +135,6 @@ int main() {
                 {
                 printf("\nAugust 11, 2021\n");
                 option2(); //shows flight data
-                printf("\nHow many tickets will you get?:  ");
-                scanf("%d", &x);
-
                  do {//Making sure an individual does place more than 10 tickets at once 
                      {
                       printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
@@ -158,15 +154,12 @@ int main() {
                 {
                     printf("\nAugust 12, 2021\n");
                     option3(); //Prints fight data
-                    printf("\nHow many tickets will you get?: ");
-                    scanf("%d", &x);
-
-                     do {//Making sure an individual does place more than 10 tickets at once 
-                     {
-                      printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
-                      printf("\nHow many tickets will you get? (0-10): ");
-                      scanf("%d", &x);
-                     }
+                    do {//Making sure an individual does place more than 10 tickets at once 
+                    {
+                     	printf("\nRestriction: Max of 10 Tickets may be placed at once\n");
+                    	printf("\nHow many tickets will you get? (0-10): ");
+                     	scanf("%d", &x);
+                    }
                     } while (x > 10);
 
 		    //Loops for each ticket
@@ -193,13 +186,10 @@ int main() {
                       printf("\nChoose date of return: \n1. August 11, 2021\n2. August 12, 2021\n");
                       scanf("%d", &date2);
                     } while (date2 < 1 || date2 > 2);
-
-                    printf("\nHow many tickets will you get (excluding the return trip)?: ");
-                    scanf("%d", &x);
                     do // Making sure an individual can only place 20 tickets
                   {
                     printf("\nRestriction: Max of 20 Tickets may be placed\n");
-                    printf("\nHow many tickets will you get? (0-20): ");
+                    printf("\nHow many tickets will you get? (0-20) (excluding the return trip): ");
                     scanf("%d", &x); 
                   } while (x > 30);
 
@@ -266,8 +256,6 @@ int main() {
                 {
                 printf("\nAugust 11, 2021\n");
                 option2();
-                printf("\nHow many tickets will you get?: ");
-                scanf("%d", &x); 
                 do // Making sure an individual can only place 20 tickets
                   {
                     printf("\nRestriction: Max of 20 Tickets may be placed\n");
@@ -285,8 +273,6 @@ int main() {
                 {
                     printf("\nAugust 12, 2021\n");
                     option3();
-                    printf("\nHow many tickets will you get?: ");
-                    scanf("%d", &x);
                     do // Making sure an individual can only place 20 tickets
                   {
                     printf("\nRestriction: Max of 20 Tickets may be placed\n");
