@@ -131,7 +131,7 @@ int main() {
                   
                         do // Validating that user is inputting the correct value between 1 to 3
                         {
-                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                        
                           {
                           printf("\nPlease Select Choices 1, 2, or 3: ");
                            scanf("%d", &book[a].ticket); 
@@ -158,7 +158,7 @@ int main() {
                   
                          do // Validating that user is inputting the correct value between 4 to 6
                         {
-                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                       
                           {
                           printf("\nPlease Select Choices 4, 5, or 6: ");
                            scanf("%d", &book[a].ticket); 
@@ -186,7 +186,7 @@ int main() {
                        
                          do // Validating that user is inputting the correct value between 7 to 9
                         {
-                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          
                           {
                           printf("\nPlease Select Choices 7, 8, or 9: ");
                            scanf("%d", &book[a].ticket); 
@@ -223,7 +223,7 @@ int main() {
                        
                          do // Validating that user is inputting the correct value between 1 and 3
                         {
-                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                         
                           {
                           printf("\nPlease Select Choices 1, 2, or 3: ");
                            scanf("%d", &book[a].ticket); 
@@ -300,7 +300,7 @@ int main() {
                    
                          do // Validating that user is inputting the correct value between 4 to 6
                         {
-                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                       
                           {
                           printf("\nPlease Select Choices 4, 5, or 6: ");
                            scanf("%d", &book[a].ticket); 
@@ -325,7 +325,7 @@ int main() {
           
                         do // Validating that user is inputting the correct value between 7 to 9
                         {
-                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          
                           {
                           printf("\nPlease Select Choices 7, 8, or 9: ");
                            scanf("%d", &book[a].ticket); 
