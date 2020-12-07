@@ -128,7 +128,15 @@ int main() {
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
-                        scanf("%d", &book[a].ticket);
+                  
+                        do // Validating that user is inputting the correct value between 1 to 3
+                        {
+                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          {
+                          printf("\nPlease Select Choices 1, 2, or 3: ");
+                           scanf("%d", &book[a].ticket); 
+                          }
+                        } while (book[a].ticket < 1 || book[a].ticket > 3);
                     }
                 }
                 else if (date==2) //one way trip date: Aug 11
@@ -147,7 +155,16 @@ int main() {
                 for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
-                        scanf("%d", &book[a].ticket);
+                  
+                         do // Validating that user is inputting the correct value between 4 to 6
+                        {
+                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          {
+                          printf("\nPlease Select Choices 4, 5, or 6: ");
+                           scanf("%d", &book[a].ticket); 
+                          }
+                        } while (book[a].ticket < 4 || book[a].ticket > 6);
+                        
                     }
                 }
                 else if (date==3) //One way trip date: Aug 12
@@ -166,7 +183,15 @@ int main() {
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
-                        scanf("%d", &book[a].ticket);
+                       
+                         do // Validating that user is inputting the correct value between 7 to 9
+                        {
+                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          {
+                          printf("\nPlease Select Choices 7, 8, or 9: ");
+                           scanf("%d", &book[a].ticket); 
+                          }
+                        } while (book[a].ticket < 7 || book[a].ticket > 9);
                     }
                 }
                 else printf("\nInvalid"); //Invalid choice
@@ -189,13 +214,21 @@ int main() {
                     printf("\nRestriction: Max of 20 Tickets may be placed\n");
                     printf("\nHow many tickets will you get? (0-20) (excluding the return trip): ");
                     scanf("%d", &x); 
-                  } while (x > 30);
+                  } while (x > 20);
 
 		    //Loop for amount of tickets
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
-                        scanf("%d", &book[a].ticket);
+                       
+                         do // Validating that user is inputting the correct value between 1 and 3
+                        {
+                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          {
+                          printf("\nPlease Select Choices 1, 2, or 3: ");
+                           scanf("%d", &book[a].ticket); 
+                          }
+                        } while (book[a].ticket < 1 || book[a].ticket > 3);
                         if (date2==1) //Round trip return date: Aug 11
                         {
                         switch (book[a].ticket)
@@ -259,12 +292,20 @@ int main() {
                     printf("\nRestriction: Max of 20 Tickets may be placed\n");
                     printf("\nHow many tickets will you get? (0-20): ");
                     scanf("%d", &x); 
-                  } while (x > 30);
+                  } while (x > 20);
 
                 for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
-                        scanf("%d", &book[a].ticket);
+                   
+                         do // Validating that user is inputting the correct value between 4 to 6
+                        {
+                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          {
+                          printf("\nPlease Select Choices 4, 5, or 6: ");
+                           scanf("%d", &book[a].ticket); 
+                          }
+                        } while (book[a].ticket < 4 || book[a].ticket > 6);
                     }
                 }
                 else if (date==3) //Round trip date: Aug 12
@@ -276,12 +317,20 @@ int main() {
                     printf("\nRestriction: Max of 20 Tickets may be placed\n");
                     printf("\nHow many tickets will you get? (0-20): ");
                     scanf("%d", &x); 
-                  } while (x > 30);
+                  } while (x > 20);
 
                     for (a=1; a<=x; a++)
                     {
                         printf("\nPlease select which flight you will book: ");
-                        scanf("%d", &book[a].ticket);
+          
+                        do // Validating that user is inputting the correct value between 7 to 9
+                        {
+                          if (book[a].ticket < 1 || book[a].ticket > 3)
+                          {
+                          printf("\nPlease Select Choices 7, 8, or 9: ");
+                           scanf("%d", &book[a].ticket); 
+                          }
+                        } while (book[a].ticket < 7 || book[a].ticket > 9);
                     }
                 }
                 else printf("\nInvalid"); //Invalid round trip date
@@ -322,7 +371,7 @@ int main() {
 	    }
             printf("\nTotal number of tickets: %d\n", x);
             printf("\nTotal Price: $%0.2f \n", total);
-	    //outputtubg time from api
+	    //Outputtubg time from api
 	    strftime (buffer, 150, "\nToday is %A, %B %d.\n", loctime);
             fputs (buffer, stdout);
             strftime (buffer, 150, "The time of ticket purchase is %I:%M %p.\n", loctime);
